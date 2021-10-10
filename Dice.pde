@@ -12,11 +12,13 @@ int oddcount = 0;
 void draw()
 {
   background(255);
-  for (int i = 0; i < 100; i++)
+  for (int x = 0; x < 500; x+=50)
   {
-    Dice bob = new Dice();
+    for(int y = 0; y < 300; y+=50){
+    Dice bob = new Dice(x,y);
     //write line below
     bob.show();
+    }
   }
   text(" The sum of evens are: " + evencount, 80, 375);
   text(" The sum of odds are: " + oddcount, 80, 390);
@@ -36,10 +38,10 @@ void mousePressed()
 class Dice
 {
   int myX, myY;
-  Dice()//constructor
+  Dice(int x, int y)//constructor
   {
-    myX = (int)(Math.random() * 350);
-    myY = (int)(Math.random() * 290);
+    myX = x;
+    myY = y;
   }
   void show(){
     if((int)(Math.random()* 7) == 1){
